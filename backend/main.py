@@ -50,7 +50,7 @@ def addStock():
             db.session.commit()
             return json
     except:
-        return {'error': "unkown machine_id"}
+        return {'failed': "unkown machine_id"}
 
 @app.route('/deleteMachine/', methods=['DELETE'])
 def removeMachine():
@@ -63,7 +63,7 @@ def removeMachine():
             db.session.commit()
             return json
     except:
-        return {'error': "unkown machine_id "}
+        return {'failed': "unkown machine_id "}
 
 @app.route('/deleteStock/', methods=['DELETE'])
 def removeStock():
@@ -75,7 +75,7 @@ def removeStock():
             db.session.commit()
             return json
     except:
-        return {'error': "ID does not exist"}
+        return {'failed': "unkown stock_id"}
 
 @app.route('/machineStock/', methods=['GET'])
 def machineStock():
@@ -88,8 +88,7 @@ def machineStock():
                                 inventory]
             return jsonify(inventoryMachine)
     except:
-        return {'error': "Machine ID does not exist"}
-
+        return {'failed': "unknown machine_id"}
 
 @app.route('/editMachine/', methods=['PUT'])
 def editMachine():
