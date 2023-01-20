@@ -65,7 +65,7 @@ def removeMachine():
     except:
         return {'error': "unkown machine_id "}
 
-@app.route('/delete/stock', methods=['DELETE'])
+@app.route('/deleteStock/', methods=['DELETE'])
 def removeStock():
     try:
         content_type = request.headers.get('Content-Type')
@@ -77,7 +77,7 @@ def removeStock():
     except:
         return {'error': "ID does not exist"}
 
-@app.route('/get/machineStock', methods=['GET'])
+@app.route('/machineStock/', methods=['GET'])
 def machineStock():
     try:
         conteny_type = request.headers.get('Content-Type')
