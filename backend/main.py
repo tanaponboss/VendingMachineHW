@@ -83,10 +83,10 @@ def machineStock():
         conteny_type = request.headers.get('Content-Type')
         if (conteny_type == 'application/json'):
             id = request.json["id"]
-            inventory = Stock.query.filter_by(machine_id=id).all()
-            inventoryMachine = [{'id': s.id, 'machine_id': s.machine_id, 'product': s.product, 'amount': s.amount} for s in
-                                inventory]
-            return jsonify(inventoryMachine)
+            stock = Stock.query.filter_by(machine_id=id).all()
+            machineStock = [{'id': s.id, 'machine_id': s.machine_id, 'product': s.product, 'amount': s.amount} for s in
+                                stock]
+            return jsonify(machineStock)
     except:
         return {'failed': "unknown machine_id"}
 
